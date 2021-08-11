@@ -50,6 +50,7 @@ const usuariosPost = async (req, res = response) => {
   const { nombre, email, password, rol } = req.body; //desestructuro solo lo que necesito guardar obligatoriamente
 
   const usuario = new Usuario({ nombre, email, password, rol });
+  console.log(usuario);
   //Encriptar contraseña
   const salt = bcrypt.genSaltSync(); //numero de veces que se aplicará encriptación
   usuario.password = bcrypt.hashSync(password, salt); //encriptación de contraseña
